@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.DashboardActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:src="@drawable/add"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="20dp"/>
+
+    <RelativeLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:background="@color/colorWhite"
+        android:elevation="3dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E-Commerce"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/colorDarkGrey"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <RelativeLayout
+            android:id="@+id/cart"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:padding="9dp"
+                android:background="@drawable/circle_stroke_dark_grey"
+                android:src="@drawable/cart"
+                app:tint="@color/colorOrange" />
+
+            <TextView
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/circle_orange"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="12sp"
+                android:textColor="@color/colorWhite"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="10dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/cart"
+            android:src="@drawable/search"
+            app:tint="@color/colorOrange" />
+
+        <ImageView
+            android:id="@+id/menu"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/search"
+            android:src="@drawable/menu"
+            app:tint="@color/colorDarkGrey" />
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

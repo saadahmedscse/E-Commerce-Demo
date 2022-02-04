@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.AddActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Product Details"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/colorDarkGrey"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/product_name"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/roboto"
+                android:background="@drawable/stroke_dark_grey_10"
+                android:hint="Enter product name"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp" />
+
+            <EditText
+                android:id="@+id/product_desc"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/roboto"
+                android:background="@drawable/stroke_dark_grey_10"
+                android:hint="Enter product description"
+                android:gravity="start"
+                android:paddingTop="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Regular Price"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/colorDarkGrey"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/regular_price"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/roboto"
+                android:background="@drawable/stroke_dark_grey_10"
+                android:hint="Enter regular price"
+                android:inputType="number"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Variant Price"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/colorDarkGrey"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="5dp"
+                android:background="@drawable/bg_light_grey_10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/roboto"
+                    android:text="White  |  Small"
+                    android:textColor="@color/colorDarkGrey"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/ws_price"
+                    android:layout_width="135dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/roboto"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_white_10"
+                    android:hint="Price..."
+                    android:inputType="number"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="5dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="5dp"
+                android:background="@drawable/bg_light_grey_10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/roboto"
+                    android:text="White  |  Large"
+                    android:textColor="@color/colorDarkGrey"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/wl_price"
+                    android:layout_width="135dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/roboto"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_white_10"
+                    android:hint="Price..."
+                    android:inputType="number"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="5dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="5dp"
+                android:background="@drawable/bg_light_grey_10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Black  |  Small"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/colorDarkGrey"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/bs_price"
+                    android:layout_width="135dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/roboto"
+                    android:background="@drawable/bg_white_10"
+                    android:hint="Price..."
+                    android:inputType="number"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="5dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="5dp"
+                android:background="@drawable/bg_light_grey_10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Black  |  Large"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/colorDarkGrey"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/bl_price"
+                    android:layout_width="135dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/roboto"
+                    android:background="@drawable/bg_white_10"
+                    android:hint="Price..."
+                    android:inputType="number"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="5dp" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Product Images"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/colorDarkGrey"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/add_image_btn"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="45dp"
+                android:fontFamily="@font/roboto"
+                android:background="@drawable/bg_orange_5"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                android:text="Add Images"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorLightGrey">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/upload_btn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_orange_25">
+
+                <TextView
+                    android:id="@+id/upload_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/roboto"
+                    android:text="Upload Product"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp" />
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:visibility="gone"
+                    android:indeterminateTint="@color/colorWhite"
+                    android:layout_centerInParent="true"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

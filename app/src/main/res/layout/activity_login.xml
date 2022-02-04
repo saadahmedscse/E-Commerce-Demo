@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
+    tools:context=".view.LoginActivity">
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login to your account"
+        android:textSize="25sp"
+        android:fontFamily="@font/roboto"
+        android:textStyle="bold"
+        android:textColor="@color/colorDarkGrey"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="0dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_light_grey_25"
+        android:layout_marginTop="25dp">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/email"/>
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/roboto"
+            android:background="@drawable/bg_light_grey_25"
+            android:paddingStart="10dp"
+            android:paddingEnd="5dp"
+            android:inputType="textEmailAddress"
+            android:hint="Enter your email"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="0dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_light_grey_25"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/password"/>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/roboto"
+            android:background="@drawable/bg_light_grey_25"
+            android:paddingStart="10dp"
+            android:paddingEnd="5dp"
+            android:inputType="textPassword"
+            android:hint="Enter your password"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_orange_25">
+
+        <TextView
+            android:id="@+id/login_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/roboto"
+            android:text="Login"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:visibility="gone"
+            android:indeterminateTint="@color/colorWhite"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/roboto"
+        android:textColor="@color/colorDarkGrey"
+        android:text="Don't have an account?"/>
+
+    <TextView
+        android:id="@+id/sign_up_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:fontFamily="@font/roboto"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/stroke_orange_25"
+        android:gravity="center"
+        android:textColor="@color/colorDarkGrey"
+        android:textSize="16sp"
+        android:text="Sign Up for new account"/>
+
+</LinearLayout>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1014756699544",
+    "project_id": "e-commerce-demo-60deb",
+    "storage_bucket": "e-commerce-demo-60deb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014756699544:android:cffab1fa9b86df3e7f0fed",
+        "android_client_info": {
+          "package_name": "com.caffeine.e_commercedemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1014756699544-npb3q0vc1beua43pioth45fjli6vmoen.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlYr8po5rhQzaXMWeHe-PLuge67d8pl1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1014756699544-npb3q0vc1beua43pioth45fjli6vmoen.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

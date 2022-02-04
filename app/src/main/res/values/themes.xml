@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ECommerceDemo" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorWhite</item>
+        <item name="colorPrimaryVariant">@color/background</item>
+        <item name="colorOnPrimary">@color/colorWhite</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorOrange</item>
+        <item name="colorSecondaryVariant">@color/colorWhite</item>
+        <item name="colorOnSecondary">@color/colorWhite</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+</resources>
