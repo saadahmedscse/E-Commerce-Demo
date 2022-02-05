@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.caffeine.e_commercedemo.R;
 import com.caffeine.e_commercedemo.databinding.ItemLayoutBinding;
 import com.caffeine.e_commercedemo.model.ProductDetails;
+import com.caffeine.e_commercedemo.model.VariantDetails;
 import com.caffeine.e_commercedemo.view.DetailsActivity;
 import com.squareup.picasso.Picasso;
 
@@ -22,6 +23,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     private Context context;
     private ArrayList<ProductDetails> list;
+    private ArrayList<Integer> prices;
 
     public ProductAdapter(Context context, ArrayList<ProductDetails> list) {
         this.context = context;
@@ -62,11 +64,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         Picasso.get().load(products.getImages().get(0).getImage()).into(holder.binding.image);
 
-        ArrayList<Integer> prices = new ArrayList<>();
-        prices.add(Integer.parseInt(products.getVariants().get(0).getPrice()));
-        prices.add(Integer.parseInt(products.getVariants().get(1).getPrice()));
-        prices.add(Integer.parseInt(products.getVariants().get(2).getPrice()));
-        prices.add(Integer.parseInt(products.getVariants().get(3).getPrice()));
+        holder.binding.regularPrice.setText(products.getRprice());
+        holder.binding.regularPrice.setPaintFlags(holder.binding.regularPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
+        prices = new ArrayList<>();
+        for (VariantDetails v : products.getVariants()){
+            prices.add(Integer.parseInt(v.getPrice()));
+        }
 
         int minPrice=0, maxPrice=0;
         for (int price : prices){
@@ -74,10 +78,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             else if (price < minPrice) minPrice = price;
             if (price>maxPrice) maxPrice = price;
         }
-
         holder.binding.currentPrice.setText("৳" + minPrice + " - ৳" + maxPrice);
-        holder.binding.regularPrice.setText(products.getRprice());
-        holder.binding.regularPrice.setPaintFlags(holder.binding.regularPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
         holder.binding.getRoot().setOnClickListener(v -> {
             if (products.getId() != null){

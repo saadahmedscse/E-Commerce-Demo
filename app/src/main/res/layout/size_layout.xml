@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/size"
+    android:layout_width="60dp"
+    android:layout_marginStart="7dp"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:fontFamily="@font/roboto"
+    android:paddingBottom="5dp"
+    android:background="@drawable/bg_grey_square"
+    android:gravity="center"
+    android:textColor="@color/colorDarkGrey"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    android:text="S"/>

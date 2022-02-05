@@ -27,9 +27,12 @@
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/layout/color_layout.xml" value="0.209375" />
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/layout/detailed_image_item.xml" value="0.209375" />
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/layout/image_item.xml" value="0.209375" />
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/layout/item_layout.xml" value="0.25" />
+        <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/layout/size_layout.xml" value="0.209375" />
+        <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/layout/variant_layout.xml" value="0.209375" />
       </map>
     </option>
   </component>

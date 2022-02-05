@@ -10,9 +10,14 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.caffeine.e_commercedemo.R;
+import com.caffeine.e_commercedemo.adapter.ColorAdapter;
 import com.caffeine.e_commercedemo.adapter.DetailedImageAdapter;
+import com.caffeine.e_commercedemo.adapter.SizeAdapter;
 import com.caffeine.e_commercedemo.databinding.ActivityDetailsBinding;
 import com.caffeine.e_commercedemo.model.ProductDetails;
+import com.caffeine.e_commercedemo.model.VariantDetails;
+import com.caffeine.e_commercedemo.util.ColorInterface;
+import com.caffeine.e_commercedemo.util.SizeInterface;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,15 +25,26 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-public class DetailsActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class DetailsActivity extends AppCompatActivity implements SizeInterface, ColorInterface {
 
     private ActivityDetailsBinding binding;
     private int pos = 2;
     private int quantity = 1;
-    private String size = "s", color = "w";
     private String variant = "ws";
     private int cPrice = 0;
     private ProductDetails product;
+    private ArrayList<String> size;
+    private ArrayList<String> color;
+    private HashMap<String, ArrayList<String>> sizeMap;
+    private HashMap<String, String> priceMap;
+    SizeAdapter sizeAdapter;
+    ColorAdapter colorAdapter;
+
+    private String selectedColor = "", selectedSize = "";
+    private int selectedPrice=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +56,18 @@ public class DetailsActivity extends AppCompatActivity {
         String id = intent.getStringExtra("id");
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager layoutManager2 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager layoutManager3 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         binding.recyclerView.setLayoutManager(layoutManager);
+        binding.sizeRecyclerView.setLayoutManager(layoutManager2);
+        binding.colorRecyclerView.setLayoutManager(layoutManager3);
         cPrice = Integer.parseInt(binding.price.getText().toString());
         getProductDetails(id);
+
+        size = new ArrayList<>();
+        color = new ArrayList<>();
+        sizeMap = new HashMap<>();
+        priceMap = new HashMap<>();
 
         binding.right.setOnClickListener(v -> {
             if (pos < product.getImages().size()-1){
@@ -90,48 +115,52 @@ public class DetailsActivity extends AppCompatActivity {
         binding.regularPrice.setText(product.getRprice());
         binding.regularPrice.setPaintFlags(binding.regularPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
-        binding.small.setOnClickListener(v -> {
-            binding.small.setBackgroundResource(R.drawable.stroke_grey_filled_orange);
-            binding.large.setBackgroundResource(R.drawable.bg_grey_square);
-            size = "s";
-            variant = color + size;
-            changePrice(product);
-        });
 
-        binding.large.setOnClickListener(v -> {
-            binding.large.setBackgroundResource(R.drawable.stroke_grey_filled_orange);
-            binding.small.setBackgroundResource(R.drawable.bg_grey_square);
-            size = "l";
-            variant = color + size;
-            changePrice(product);
-        });
+        for (VariantDetails obj : product.getVariants()){
+            if (sizeMap.containsKey(obj.getSize())){
+                sizeMap.get(obj.getSize()).add(obj.getColor());
+            }
+            else {
+                ArrayList<String> temp = new ArrayList<>();
+                temp.add(obj.getColor());
+                sizeMap.put(obj.getSize(), temp);
+            }
 
-        binding.white.setOnClickListener(v -> {
-            binding.white.setBackgroundResource(R.drawable.stroke_grey_filled_orange);
-            binding.black.setBackgroundResource(R.drawable.bg_grey_square);
-            color = "w";
-            variant = color + size;
-            changePrice(product);
-        });
+            priceMap.put(obj.getColor() + obj.getSize(), obj.getPrice());
+        }
 
-        binding.black.setOnClickListener(v -> {
-            binding.black.setBackgroundResource(R.drawable.stroke_grey_filled_orange);
-            binding.white.setBackgroundResource(R.drawable.bg_grey_square);
-            color = "b";
-            variant = color + size;
-            changePrice(product);
-        });
+
+        for (VariantDetails obj : product.getVariants()){
+            size.add(obj.getSize());
+        }
+
+        for (VariantDetails obj : product.getVariants()){
+            color.add(obj.getColor());
+        }
+
+        sizeAdapter = new SizeAdapter(this, size, this);
+        binding.sizeRecyclerView.setAdapter(sizeAdapter);
+
+        colorAdapter = new ColorAdapter(this, color, binding.color, this);
+        binding.colorRecyclerView.setAdapter(colorAdapter);
+
+        cPrice = Integer.parseInt(product.getVariants().get(0).getPrice());
 
         binding.plus.setOnClickListener(v -> {
-            quantity++;
-            int p = quantity * cPrice;
-            binding.price.setText(String.valueOf(p));
-            binding.quantity.setText(String.valueOf(quantity));
+            if (selectedColor != ""){
+                quantity++;
+                int p = quantity * selectedPrice;
+                binding.price.setText(String.valueOf(p));
+                binding.quantity.setText(String.valueOf(quantity));
+            }
+            else {
+                Toast.makeText(this, "Please select color first", Toast.LENGTH_SHORT).show();
+            }
         });
 
         binding.minus.setOnClickListener(v -> {
             if (quantity != 1){
-                int p = Integer.parseInt(binding.price.getText().toString()) - cPrice;
+                int p = Integer.parseInt(binding.price.getText().toString()) - selectedPrice;
                 quantity--;
                 binding.price.setText(String.valueOf(p));
                 binding.quantity.setText(String.valueOf(quantity));
@@ -139,25 +168,50 @@ public class DetailsActivity extends AppCompatActivity {
         });
     }
 
-    private void changePrice(ProductDetails product){
-        switch (variant){
-            case "ws":
-                int p1 = quantity * Integer.parseInt(product.getVariants().get(0).getPrice());
-                binding.price.setText(String.valueOf(p1));
-                cPrice = Integer.parseInt(product.getVariants().get(0).getPrice());
-                break;
-            case "wl":int p2 = quantity * Integer.parseInt(product.getVariants().get(1).getPrice());
-                binding.price.setText(String.valueOf(p2));
-                cPrice = Integer.parseInt(product.getVariants().get(1).getPrice());
-                break;
-            case "bs":int p3 = quantity * Integer.parseInt(product.getVariants().get(2).getPrice());
-                binding.price.setText(String.valueOf(p3));
-                cPrice = Integer.parseInt(product.getVariants().get(2).getPrice());
-                break;
-            case "bl":int p4 = quantity * Integer.parseInt(product.getVariants().get(3).getPrice());
-                binding.price.setText(String.valueOf(p4));
-                cPrice = Integer.parseInt(product.getVariants().get(3).getPrice());
-                break;
+    @Override
+    public void onColorClicked(String color, int position) {
+        if (selectedSize != ""){
+            selectedColor = color;
+            binding.price.setText(priceMap.get(selectedColor + selectedSize));
+            selectedPrice = Integer.parseInt(priceMap.get(selectedColor + selectedSize));
+            colorAdapter.upadteBg(position);
+        }
+        else {
+            Toast.makeText(this, "Please select size first", Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    public void onSizeClicked(String size, int position) {
+        if (selectedColor != size){
+            selectedColor = "";
+            selectedSize = size;
+            colorAdapter.upadteBg(-1);
+            colorAdapter.updateList(sizeMap.get(size));
+
+            sizeAdapter.upadteBg(position);
+        }
+    }
+
+//    private void changePrice(ProductDetails product){
+//        switch (variant){
+//            case "ws":
+//                int p1 = quantity * Integer.parseInt(product.getVariants().get(0).getPrice());
+//                binding.price.setText(String.valueOf(p1));
+//                cPrice = Integer.parseInt(product.getVariants().get(0).getPrice());
+//                break;
+//            case "wl":int p2 = quantity * Integer.parseInt(product.getVariants().get(1).getPrice());
+//                binding.price.setText(String.valueOf(p2));
+//                cPrice = Integer.parseInt(product.getVariants().get(1).getPrice());
+//                break;
+//            case "bs":int p3 = quantity * Integer.parseInt(product.getVariants().get(2).getPrice());
+//                binding.price.setText(String.valueOf(p3));
+//                cPrice = Integer.parseInt(product.getVariants().get(2).getPrice());
+//                break;
+//            case "bl":int p4 = quantity * Integer.parseInt(product.getVariants().get(3).getPrice());
+//                binding.price.setText(String.valueOf(p4));
+//                cPrice = Integer.parseInt(product.getVariants().get(3).getPrice());
+//                break;
+//        }
+//    }
 }

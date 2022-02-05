@@ -81,6 +81,11 @@ public class DashboardActivity extends AppCompatActivity {
                 }
 
                 ProductAdapter adapter = new ProductAdapter(DashboardActivity.this, list);
+
+                if (adapter.getItemCount() > 0){
+                    binding.progressBar.setVisibility(View.GONE);
+                }
+
                 binding.recyclerView.setAdapter(adapter);
             }
 

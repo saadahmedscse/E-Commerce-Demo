@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/size"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="7dp"
+            android:background="@drawable/stroke_dark_grey_10"
+            android:hint="Enter size"
+            android:inputType="text"
+            android:paddingStart="15dp"
+            android:paddingEnd="5dp"/>
+
+        <EditText
+            android:id="@+id/color"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginStart="7dp"
+            android:background="@drawable/stroke_dark_grey_10"
+            android:hint="Enter color"
+            android:inputType="text"
+            android:paddingStart="15dp"
+            android:paddingEnd="5dp"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:gravity="center"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:background="@drawable/bg_orange_25"
+            android:text="Delete"/>
+
+        <EditText
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@id/delete"
+            android:layout_marginEnd="15dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="5dp"
+            android:background="@drawable/stroke_dark_grey_10"
+            android:inputType="number"
+            android:hint="Enter price"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
