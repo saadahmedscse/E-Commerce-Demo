@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/drawable-v24/circle_light_orange.xml" value="0.1" />
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/drawable/bg_dark_grey_10.xml" value="0.1" />
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/drawable/bg_grey_square.xml" value="0.1" />
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/drawable/bg_light_grey_10.xml" value="0.1" />
@@ -12,8 +13,10 @@
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/drawable/bg_orange_square.xml" value="0.1" />
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/drawable/bg_product.xml" value="0.1" />
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/drawable/bg_white_10.xml" value="0.1" />
+        <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/drawable/circle_light_orange.xml" value="0.1" />
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/drawable/circle_orange.xml" value="0.1" />
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/drawable/circle_stroke_dark_grey.xml" value="0.1" />
+        <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/drawable/email.xml" value="0.1" />
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/drawable/stroke_dark_grey_10.xml" value="0.1295" />
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/drawable/stroke_grey_filled_orange.xml" value="0.1" />
         <entry key="..\:/Documents/CIT Android Studio Projects/ECommerceDemo/app/src/main/res/drawable/stroke_grey_square.xml" value="0.1" />

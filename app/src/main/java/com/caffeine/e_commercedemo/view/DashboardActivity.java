@@ -45,6 +45,12 @@ public class DashboardActivity extends AppCompatActivity {
             startActivity(new Intent(DashboardActivity.this, AddActivity.class));
             finish();
         });
+
+        binding.logout.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(DashboardActivity.this, LoginActivity.class));
+            finish();
+        });
     }
 
     private void getUserData(){

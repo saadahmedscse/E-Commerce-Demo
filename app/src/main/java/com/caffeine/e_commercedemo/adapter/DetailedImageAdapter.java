@@ -20,11 +20,14 @@ public class DetailedImageAdapter extends RecyclerView.Adapter<DetailedImageAdap
     Context context;
     ImageView imageView;
     ArrayList<ImageDetails> list;
+    ImageView left, right;
 
-    public DetailedImageAdapter(Context context, ImageView imageView, ArrayList<ImageDetails> list) {
+    public DetailedImageAdapter(Context context, ImageView imageView, ArrayList<ImageDetails> list, ImageView left, ImageView right) {
         this.context = context;
         this.imageView = imageView;
         this.list = list;
+        this.left = left;
+        this.right = right;
     }
 
     @NonNull

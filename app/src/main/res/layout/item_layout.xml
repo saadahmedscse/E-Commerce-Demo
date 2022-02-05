@@ -10,11 +10,11 @@
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="1dp"
         android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/discount"
@@ -30,52 +30,51 @@
         android:paddingEnd="15dp"
         android:paddingBottom="5dp"
         android:text="15% Discount"
-        android:textColor="@color/colorWhite"
-        android:textSize="16sp" />
+        android:textColor="@color/colorWhite" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/image"
         android:orientation="vertical"
-        android:padding="10dp"
-        android:layout_below="@id/image">
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/availabilty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sold out"
             android:fontFamily="@font/roboto"
-            android:textColor="@color/colorOrange"/>
+            android:text="Sold out"
+            android:textColor="@color/colorOrange" />
 
         <TextView
             android:id="@+id/product_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
             android:layout_marginTop="5dp"
-            android:text="Cool Colors Combination Hoodie For Men"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorDarkGrey"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto"
             android:maxLines="2"
-            android:ellipsize="end"/>
+            android:text="Cool Colors Combination Hoodie For Men"
+            android:textColor="@color/colorDarkGrey"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/current_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
                 android:fontFamily="@font/roboto"
-                android:textStyle="bold"
+                android:text="$562"
                 android:textColor="@color/colorOrange"
-                android:text="$562"/>
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/regular_price"
@@ -83,8 +82,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/roboto"
-                android:textColor="@color/colorDarkGrey"
-                android:text="$598"/>
+                android:text="$598"
+                android:textColor="@color/colorDarkGrey" />
 
         </LinearLayout>
 
