@@ -52,9 +52,8 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ViewHolder>{
         });
     }
 
-    public void updateList(ArrayList<String> list){
-        this.list.clear();
-        this.list = list;
+    public void updateList(ArrayList<String> newList){
+        this.list = newList;
         notifyDataSetChanged();
     }
 

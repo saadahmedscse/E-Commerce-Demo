@@ -183,12 +183,11 @@ public class DetailsActivity extends AppCompatActivity implements SizeInterface,
 
     @Override
     public void onSizeClicked(String size, int position) {
-        if (selectedColor != size){
-            selectedColor = "";
+        if (selectedSize != size){
+            selectedColor ="";
             selectedSize = size;
             colorAdapter.upadteBg(-1);
             colorAdapter.updateList(sizeMap.get(size));
-
             sizeAdapter.upadteBg(position);
         }
     }
