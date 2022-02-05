@@ -46,7 +46,6 @@ public class DetailsActivity extends AppCompatActivity {
 
         binding.right.setOnClickListener(v -> {
             if (pos < product.getImages().size()-1){
-                Toast.makeText(this, String.valueOf(pos), Toast.LENGTH_SHORT).show();
                 pos++;
                 binding.recyclerView.smoothScrollToPosition(pos);
             }
