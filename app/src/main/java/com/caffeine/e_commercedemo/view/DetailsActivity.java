@@ -129,14 +129,11 @@ public class DetailsActivity extends AppCompatActivity implements SizeInterface,
             priceMap.put(obj.getColor() + obj.getSize(), obj.getPrice());
         }
 
-
-        for (VariantDetails obj : product.getVariants()){
-            size.add(obj.getSize());
-        }
-
         for (VariantDetails obj : product.getVariants()){
             color.add(obj.getColor());
         }
+
+        size.addAll(sizeMap.keySet());
 
         sizeAdapter = new SizeAdapter(this, size, this);
         binding.sizeRecyclerView.setAdapter(sizeAdapter);
